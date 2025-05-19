@@ -1,0 +1,27 @@
+@model GetOrderViewModel
+
+@{
+    ViewData["Title"] = "Hämta lagd order";
+}
+<main>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <form id="check-order" asp-controller="Order" asp-action="OrderDetails" method="post" autocomplete="off">
+        <label asp-for="OrderNumber">Ordernummer</label>
+        <input asp-for="OrderNumber" class="form-control" required autocomplete="off" />
+        <span asp-validation-for="OrderNumber" class="text-danger"></span>
+
+        <label asp-for="PhoneNumber">Telefonnummer</label>
+        <input asp-for="PhoneNumber" class="form-control" required autocomplete="off" />
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+
+        <label asp-for="Email">E-post</label>
+        <input asp-for="Email" type="email" class="form-control" required autocomplete="off" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+
+        <label asp-for="FullName">Fullständigt namn</label>
+        <input asp-for="FullName" class="form-control" required autocomplete="off" />
+        <span asp-validation-for="FullName" class="text-danger"></span>
+
+        <button type="submit" class="btn btn-primary">Skicka</button>
+    </form>
+</main>

@@ -1,0 +1,99 @@
+@model BasketViewModel
+
+@{
+    ViewData["Title"] = "Din Kundkorg";
+}
+
+<main>
+    <secion id="basket-info">
+        <a asp-action="Index" asp-controller="Restaurant">↩ Fortsätt handla</a>
+        <h2>Din Kundkorg</h2>
+
+        @if (Model.Items.Any())
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Produkt</th>
+                        <th>Antal</th>
+                        <th>Pris</th>
+                        <th>Totalt</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Items)
+                    {
+                        <tr>
+                            <td>@item.ProductName</td>
+                            <td>
+                                <form asp-action="UpdateQuantity" method="post">
+                                    <input type="hidden" name="FoodCourseIdentifier" value="@item.FoodCourseIdentifier" />
+
+                                    <button type="submit" name="action" value="decrease">-</button>
+                                    <span>@item.Quantity</span>
+                                    <button type="submit" name="action" value="increase">+</button>
+                                </form>
+                            </td>
+                            <td>@item.UnitPrice.ToString("C")</td>
+                            <td>@(item.Quantity* item.UnitPrice)</td>
+                            <td>
+                                <form asp-action="RemoveFromBasket" method="post">
+                                    <input type="hidden" name="FoodCourseIdentifier" value="@item.FoodCourseIdentifier" />
+                                    <input type="hidden" name="Quantity" value="@item.Quantity" />
+                                    <button type="submit" class="btn btn-danger"
+                                        onclick="return confirm('Är du säker på att du vill ta bort maträtten?')">
+                                        Ta bort
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+
+            <h3>Totalt: @Model.Total() kr</h3>
+            <h3>Varav serviceavgift: @Math.Round(@Model.ServiceFee(), 2) Kr. </h3>
+            <p>Varav leveransavgift: @Model.DeliveryFee.Sum(m => m.Value)</p>
+
+
+            <h2>Lägg Order</h2>
+            <form id="place-order" asp-action="Index" asp-controller="Basket" method="post">
+                <label asp-for="CreateOrderData.FullName">Fullständigt namn</label>
+                <input asp-for="CreateOrderData.FullName" type="text" class="form-control" required />
+                <span asp-validation-for="CreateOrderData.FullName" class="text-danger"></span>
+
+                <label asp-for="CreateOrderData.Email">E-post</label>
+                <input asp-for="CreateOrderData.Email" type="email" class="form-control" required />
+                <span asp-validation-for="CreateOrderData.Email" class="text-danger"></span>
+
+                <label asp-for="CreateOrderData.StreetAddress">Adress</label>
+                <input asp-for="CreateOrderData.StreetAddress" type="text" class="form-control" required />
+                <span asp-validation-for="CreateOrderData.StreetAddress" class="text-danger"></span>
+
+                <label asp-for="CreateOrderData.ZipCode">Postnummer</label>
+                <input asp-for="CreateOrderData.ZipCode" type="text" class="form-control" required />
+                <span asp-validation-for="CreateOrderData.ZipCode" class="text-danger"></span>
+
+                <label asp-for="CreateOrderData.City">Ort</label>
+                <input asp-for="CreateOrderData.City" type="text" class="form-control" required />
+                <span asp-validation-for="CreateOrderData.City" class="text-danger"></span>
+
+                <label asp-for="CreateOrderData.PhoneNumber">Telefonnummer</label>
+                <input asp-for="CreateOrderData.PhoneNumber" type="tel" class="form-control" required />
+                <span asp-validation-for="CreateOrderData.PhoneNumber" class="text-danger"></span>
+
+                <button type="submit" class="btn btn-primary">Slutför Beställning</button>
+            </form>
+        }
+        else
+        {
+            <p>Din kundkorg är tom.</p>
+            <div asp-validation-summary="All" class="text-danger"></div>
+        }
+
+
+    </secion>
+</main>

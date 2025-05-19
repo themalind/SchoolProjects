@@ -1,0 +1,38 @@
+@model CourseViewModel
+
+
+<main id="course-details">
+    <section id="course-info">
+        <div class="image">
+            <img src="@Model.PictureUri" class="picture" />
+        </div>
+        <div class="text">
+            <h2>@Model.Name</h2>
+            <p>@Model.Description</p>
+            <div class="price">
+                <p>@Model.Price kr</p>
+            </div>
+            @if (!Model.IsTheSameRestaurant)
+            {
+                <div class="restaurant-warning">
+                    <p> <strong>Varning!</strong> Denna maträtt kommer från en annan restaurang än de som redan finns i din
+                        varukorg.
+                        Du kan bara handla från en restaurang åt gången.
+                        Om du väljer att lägga till denna rätt töms varkorgen och ersätts med en ny för den valda
+                        restaurangen.</p>
+                </div>
+            }
+
+            <div class="buy">
+                <form asp-action="AddToBasket" asp-controller="Restaurant" method="post">
+                    <input asp-for="AddToBasketViewModel.CourseIdentifier" type="hidden"
+                        value="@Model.FoodCourseIdentifier" />
+                    <input asp-for="AddToBasketViewModel.Quantity" type="number" min="1" max="10" required />
+                    <span asp-validation-for="AddToBasketViewModel.Quantity" class="text-danger"></span>
+                    <button type="submit" class="btn btn-primary">Lägg till</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <a asp-action="Index" asp-controller="Restaurant">↩ Tillbaka</a>
+</main>

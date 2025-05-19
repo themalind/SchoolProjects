@@ -1,0 +1,31 @@
+﻿@model List<RestaurantIndexViewModel>
+
+<main>
+    <section class="restaurant-list">
+        @foreach (var restaurant in Model)
+        {
+            var today = DateTime.Now.DayOfWeek;
+
+            var openingHours = restaurant.OpeningHours.Where(d => d.Day.ToString() == today.ToString()).FirstOrDefault();
+
+            <a href="@Url.Action("Details", "Restaurant", new { id = restaurant.RestaurantIdentifier })">
+                <article class="restaurant-card">
+                    <img src="@restaurant.PictureUri" alt="Bild på @restaurant.Name" class="restaurant-img" />
+                    <h2>@restaurant.Name</h2>
+
+                    @if (openingHours != null)
+                    {
+                        <p>Öppettider idag: @openingHours.OpenTime - @openingHours.CloseTime</p>
+                        <p>Köket stänger: @openingHours.KitchenCloseTime</p>
+                    }
+                    else
+                    {
+                        <p>Stängt idag</p>
+                    }
+
+                    <p>Leveransavgift: @restaurant.DeliveryFee kr</p>
+                </article>
+            </a>
+        }
+    </section>
+</main>

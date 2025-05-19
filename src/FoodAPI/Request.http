@@ -1,0 +1,116 @@
+
+GET https://localhost:7017/api/restaurants
+x-api-key : One_Key_To_Rule_Them_All
+
+
+###
+GET https://localhost:7017/api/orders
+x-api-key : One_Key_To_Rule_Them_All
+
+###
+GET localhost:7017/api/Orders/REST-0001075
+Content-Type: application/json
+x-api-key : One_Key_To_Rule_Them_All
+
+###
+GET https://localhost:7017/api/orders/Status/confirmed
+Content-Type: application/json
+x-api-key : One_Key_To_Rule_Them_All
+
+
+GET https://localhost:7017/api/orders/REST-0001010/status/Confirmed
+Content-Type: application/json
+x-api-key : One_Key_To_Rule_Them_All
+
+###
+PUT https://localhost:7017/api/orders/status/
+Content-Type: application/json
+x-api-key : One_Key_To_Rule_Them_All
+
+{
+  "OrderStatus": "Confirmed",
+  "OrderNumber": "ORD-0001210"
+}
+
+###
+
+PUT https://localhost:7017/api/order/assigncourier
+Content-Type: application/json
+x-api-key : One_Key_To_Rule_Them_All
+
+{
+  "OrderNumber": "ORD-0001215",
+  "CourierId": 1
+}
+
+###
+POST  https://localhost:7017/api/restaurant/foodcourse
+Content-Type: application/json
+x-api-key : One_Key_To_Rule_Them_All
+
+{
+  "Name" : "Svinstor stek",
+  "RestaurantIdentifier" : "REST-0001220",
+  "Description" : "Den största steken du någonsin sett!",
+  "UnitPrice": 199,
+  "Category" : [ 
+    {
+      "Name" : "Vilt"
+    },
+     {
+      "Name" : "Stek"
+    }
+  ],
+      "PictureUri" : "wwwroot/images/food.webp"
+}
+
+###
+POST https://localhost:7017/api/restaurants
+Content-Type: application/json
+x-api-key : One_Key_To_Rule_Them_All
+
+{
+  "Name": "Hej baberiba",
+  "OpeningHours": [
+    {
+      "day": 1,
+      "openTime": "12:00:00",
+      "closeTime": "22:00:00",
+      "kitchenCloseTime": "20:30:00"
+    },
+    {
+      "day": 2,
+      "openTime": "12:00:00",
+      "closeTime": "22:00:00",
+      "kitchenCloseTime": "20:30:00"
+    },
+    {
+      "day": 3,
+       "openTime": "12:00:00",
+      "closeTime": "22:00:00",
+      "kitchenCloseTime": "20:30:00"
+    },
+    {
+      "day": 4,
+        "openTime": "12:00:00",
+      "closeTime": "22:00:00",
+      "kitchenCloseTime": "20:30:00"
+    },
+    {
+      "day": 5,
+        "openTime": "12:00:00",
+      "closeTime": "22:00:00",
+      "kitchenCloseTime": "20:30:00"
+    },
+    {
+      "day": 6,
+        "openTime": "12:00:00",
+      "closeTime": "22:00:00",
+      "kitchenCloseTime": "20:30:00"
+    }
+  ], 
+  "Description": "sdfghjklölhfdsdfghjkl",
+  "PictureUri": "sdfghjkl.jpg",
+  "DeliveryFee": 129 
+}
+

@@ -1,0 +1,68 @@
+@model OrderViewModel
+
+@{
+    ViewData["Title"] = "Orderbekräftelse";
+}
+
+<main>
+    <section id="order-confirmation">
+        <h2>Tack för din beställning!</h2>
+
+        <p>Din order har registrerats med ordernummer: <strong>@Model.OrderNumber</strong></p>
+        <p>Beställningsdatum: <strong>@Model.OrderDate.ToString("yyyy-MM-dd HH:mm")</strong></p>
+
+        <div class="delivery-info">
+            <h3>Leveransinformation</h3>
+            <div class="header">Namn:</div>
+            <div class="info">@Model.CustomerFullName</div>
+            <div class="header">Adress:</div>
+            <div class="info">@Model.Address</div>
+            <div class="header">E-post:</div>
+            <div class="info">@Model.Email</div>
+            <div class="header">Telefon:</div>
+            <div class="info">@Model.Phone</div>
+        </div>
+
+        <h3>Beställda produkter</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Produkt</th>
+                    <th>Antal</th>
+                    <th>Pris</th>
+                    <th>Totalt</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td>@item.ProductName</td>
+                        <td>@item.Quantity</td>
+                        <td>@item.UnitPrice.ToString("C")</td>
+                        <td>@(item.Quantity* item.UnitPrice)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="order-summary">
+            <h3>Sammanfattning</h3>
+            <div class="header">Totalt pris:</div>
+            <div class="info">@Model.TotalPrice.ToString("C")</div>
+            <div class="header">Varav leveransavgift:</div>
+            <div class="info">@Model.DeliveryFee.ToString("C")</div>
+            <div class="header">Varav serviceavgift:</div>
+            <div class="info">@Model.ServiceFee.ToString("C") </div>
+            <div class="header">Orderstatus:</div>
+            <div class="info">@Model.OrderStatus</div>
+            <div class="header">Beräknad leveranstid:</div>
+            <div class="info">@(Model.EstimatedDeliveryTime.HasValue ? Model.EstimatedDeliveryTime.Value.ToString() :
+                                "-")</div>
+        </div>
+
+        <a asp-action="Index" asp-controller="Restaurant">
+            ↩  Till startsidan
+        </a>
+    </section>
+</main>

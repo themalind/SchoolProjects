@@ -1,0 +1,466 @@
+html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: wheat;
+  color: #141414;
+}
+
+header {
+  padding: 10px;
+  background-color: #0f2704;
+  background-image: url("../images/banner.png"); /* Se till att sökvägen är rätt */
+  background-size: contain; /* Anpassar bredden och behåller proportionerna */
+  background-position: center;
+  background-repeat: repeat;
+  color: wheat;
+  position: sticky;
+  top: 0;
+  height: 150px; /* Justera höjden vid behov */
+}
+
+/* För mindre skärmar, justera höjden */
+@media (max-width: 768px) {
+  header {
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    height: 80px;
+  }
+}
+
+header #company-name {
+  color: wheat;
+  font-size: 32pt;
+  font-weight: bolder;
+  font-variant: small-caps;
+  text-shadow: 0 0 5px darkgreen;
+}
+
+header svg {
+  float: right;
+  padding-top: 40px;
+  padding-right: 80px;
+  filter: drop-shadow(0 0 10px white);
+}
+
+a,
+a:hover,
+a:visited,
+a:link,
+a:active {
+  color: #2b2927;
+  text-decoration: none;
+}
+
+header #check-order-headerlink {
+  float: right;
+  color: wheat;
+  font-size: 24pt;
+  font-weight: bolder;
+  font-variant: small-caps;
+  text-shadow: 0 0 5px darkgreen;
+  padding-top: 60px;
+  padding-right: 80px;
+}
+
+header h1 {
+  margin: 0;
+}
+
+.picture {
+  width: 200px;
+  height: 200px;
+}
+
+.restaurant-list {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px; /* Mellanrum mellan restaurangerna */
+  justify-items: start; /* Ser till att korten ligger till vänster */
+}
+
+.restaurant-card {
+  padding: 5%;
+  background-color: wheat;
+  min-width: calc(100vw / 5);
+  color: black;
+}
+
+.restaurant-card img {
+  width: 100%; /* Gör att bilden anpassar sig till kortets bredd */
+  max-width: 300px; /* Begränsar maxbredden */
+  height: auto; /* Bevarar bildens proportioner */
+  border-radius: 10px; /* Rundade hörn för snyggare design (valfritt) */
+  object-fit: cover; /* Ser till att bilden fyller upp utrymmet utan att förvrängas */
+}
+
+.restaurant-card > img {
+  width: 100%;
+}
+
+#restaurant-details > a {
+    margin-left: 10%;
+}
+
+#course-details > a {
+    margin-left: 25%;
+}
+
+#restaurant-info {
+    display: grid;
+    grid-template-columns: calc(100vw / 3) auto;
+    color: black;
+}
+
+#restaurant-info .image {
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#restaurant-info .image > img {
+  width: 100%;
+  height: 20em;
+}
+
+#restaurant-info .text {
+  padding: 10px;
+  grid-column-start: 2;
+}
+
+#restaurant-info .operating-hours {
+  padding: 10px;
+  grid-column-start: 3;
+  background-color: beige;
+}
+
+#restaurant-info .day {
+  font-size: large;
+}
+
+#restaurant-info .kitchen {
+  font-style: italic;
+  padding-left: 1em;
+  padding-bottom: 1em;
+}
+
+#courses h1 {
+  width: 80%;
+  font-size: xx-large;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.course-list {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: left;
+  margin-left: auto;
+  margin-right: auto;
+  flex-flow: column;
+  width: 80%;
+}
+
+.course-card {
+  padding: 1em;
+  background-color: #cda34f;
+  color: #01500b;
+  display: grid;
+  grid-template-columns: 10em auto 10em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.course-card .image {
+  grid-column-start: 1;
+}
+
+.course-card .image img {
+  width: 100%;
+}
+
+.course-card .text {
+  padding: 10px;
+  grid-column-start: 2;
+}
+
+.course-card .price {
+  padding: 10px;
+  grid-column-start: 3;
+}
+
+.course-card .price p {
+  font-size: xx-large;
+  font-weight: bolder;
+  color: darkred;
+}
+
+#course-info {
+  display: grid;
+  grid-template-columns: calc(100vw / 3) auto;
+  color: black;
+}
+
+#course-info .image {
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#course-info .image > img {
+  width: 100%;
+  height: 20em;
+}
+
+#course-info .text {
+  padding: 10px;
+  grid-column-start: 2;
+}
+
+#course-info .text .price {
+  padding: 10px;
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+#course-info .text .buy {
+  padding: 10px;
+  grid-column-start: 2;
+}
+
+#course-info .text .buy input {
+  padding: 10px;
+  width: 4em;
+}
+
+#course-info .restaurant-warning {
+  color: rgb(21, 21, 20);
+  border: 1px solid orange;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+#course-info .buy button {
+  padding: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#basket-info {
+  display: block;
+  color: black;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
+
+#basket-info table {
+  width: 100%;
+}
+
+#basket-info table th {
+  border-bottom: 2px solid black;
+}
+
+#basket-info table tr:nth-child(2n) {
+  background-color: beige;
+}
+
+#basket-info table td:first-of-type {
+  text-align: left;
+}
+
+#basket-info table td {
+  text-align: center;
+}
+
+form#place-order {
+  width: 50%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 10px;
+}
+
+form#place-order label {
+  text-align: right;
+  align-self: center;
+  grid-column: 1;
+}
+
+form#place-order input {
+  padding: 10px;
+  grid-column: 2;
+}
+
+form#place-order .text-danger {
+  grid-column: 2;
+}
+
+form#place-order button {
+  padding: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  grid-column: 2;
+}
+
+#order-confirmation {
+  display: block;
+  color: black;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
+
+#order-confirmation .header {
+  display: grid;
+  grid-template-columns: 80% 20%;
+}
+
+#order-confirmation .header .info {
+  grid-column: 1;
+}
+
+#order-confirmation .header .cancel {
+  grid-column: 2;
+  padding-top: 100px;
+}
+
+#order-confirmation .header .cancel button {
+  padding: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#order-confirmation .delivery-info {
+  width: 50%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 10px;
+}
+
+#order-confirmation .delivery-info .header {
+  grid-column: 1;
+  font-weight: bold;
+}
+
+#order-confirmation .delivery-info .info {
+  grid-column: 2;
+  font-weight: normal;
+}
+
+#order-confirmation .order-summary {
+  width: 50%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 10px;
+  margin-left: auto;
+}
+
+#order-confirmation .order-summary h3 {
+  text-align: right;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+#order-confirmation .order-summary .header {
+  grid-column: 1;
+  font-weight: bold;
+  text-align: right;
+}
+
+#order-confirmation .order-summary .info {
+  grid-column: 2;
+  font-weight: normal;
+  text-align: right;
+}
+
+#order-confirmation table {
+  width: 100%;
+}
+
+#order-confirmation table th {
+  border-bottom: 2px solid black;
+}
+
+#order-confirmation table tr:nth-child(2n) {
+  background-color: beige;
+}
+
+#order-confirmation table td:first-of-type {
+  text-align: left;
+}
+
+#order-confirmation table td {
+  text-align: center;
+}
+
+form#place-order {
+  width: 50%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 10px;
+}
+
+form#place-order label {
+  text-align: right;
+  align-self: center;
+}
+
+form#place-order input {
+  padding: 10px;
+}
+
+form#place-order span {
+  grid-column: 2;
+}
+
+form#place-order button {
+  padding: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  grid-column: 2;
+}
+
+form#check-order {
+  width: 50%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 10px;
+}
+
+form#check-order label {
+  text-align: right;
+  align-self: center;
+  grid-column: 1;
+}
+
+form#check-order input {
+  padding: 10px;
+  grid-column: 2;
+}
+
+form#check-order span {
+  grid-column: 2;
+}
+
+form#check-order button {
+  padding: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  grid-column: 2;
+}

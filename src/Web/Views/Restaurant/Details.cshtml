@@ -1,0 +1,56 @@
+@model RestaurantDetailsViewModel
+
+<main id="restaurant-details">
+    <section id="restaurant-info">
+
+        <div class="image">
+            <img class="picture restaurant-logo" src="/@Model.PictureUri" alt="@Model.Name" />
+        </div>
+        <div class="text">
+            <h2>@Model.Name</h2>
+            <p>@Model.Description</p>
+            <h3>Leveransavgift: @Model.DeliveryFee kr</h3>
+            <p class="status @(Model.IsOpen ? "open" : "closed")">
+                @Model.StatusMessage
+            </p>
+        </div>
+        <div class="operating-hours">
+            <h3>Öppettider</h3>
+            @foreach (var item in @Model.OpeningHours)
+            {
+                <div class="day">@item.Day: @item.OpenTime - @item.CloseTime</div>
+                <div class="kitchen">Köket stänger: @item.KitchenCloseTime</div>
+            }
+        </div>
+    </section>
+
+    <a class="back" asp-action="Index" asp-controller="Restaurant">↩ Tillbaka till startsidan</a>
+
+    <section id="courses">
+        @if (Model.IsKitchenOpen)
+        {
+            <h1>Meny</h1>
+            <section class="course-list">
+                @foreach (var foodCourse in Model.FoodCourses)
+                {
+                    <a href="@Url.Action("Course", "Restaurant", new { id = foodCourse.FoodCourseIdentifier })">
+                        <article class="course-card">
+                            <div class="image">
+                                <img src="@foodCourse.PictureUri" alt="Picture of something edible" />
+                            </div>
+                            <div class="text">
+                                <h2>@foodCourse.Name</h2>
+                                <p>@foodCourse.Description</p>
+                            </div>
+                            <div class="price">
+                                <p>@foodCourse.Price kr</p>
+                            </div>
+                        </article>
+                    </a>
+                }
+            </section>
+        }
+
+    </section>
+
+</main>
