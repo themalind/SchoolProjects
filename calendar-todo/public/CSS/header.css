@@ -1,0 +1,71 @@
+.welcome-segment {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 10px;
+    border-radius: 12px;
+    background-color: #e6dfc6;
+    box-shadow: 0 4px 12px rgba(0, 43, 91, 0.15);
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.welcome-message h1 {
+    font-size: 1.7rem;
+    color: #554c3c;
+    margin: 0;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: -0.5px;
+}
+
+.time-date-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 5px;
+    box-sizing: border-box;
+    gap: 5px;
+}
+
+.time-container {
+    display: flex;
+    align-items: center;
+    width: 45%;
+}
+
+.time {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #554c3c;
+    letter-spacing: -1px;
+}
+
+.date-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 45%;
+}
+
+.weekday {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #554c3c;
+    margin-bottom: 5px;
+    text-align: right;
+    width: 100%;
+}
+
+.date {
+    font-size: 1.2rem;
+    padding: 4px 8px;
+    border-radius: 16px;
+    background-color: #a29c7e;
+    color: #fff;
+    font-weight: 500;
+    white-space: nowrap;
+    text-align: center;
+}

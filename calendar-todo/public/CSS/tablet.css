@@ -1,0 +1,59 @@
+@media (min-width: 48rem) {
+  .container {
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+    height: auto;
+  }
+
+  aside {
+    background-color: #a29c7e;
+    color: #554c3c;
+    flex: 2;
+    border-right: solid;
+  }
+
+  main {
+    background-color: #e6dfc6;
+    color: #554c3c;
+    flex: 4;
+  }
+
+  header {
+    padding: 15px 10px;
+    background-color: #a29c7e;
+  }
+
+  .welcome-segment {
+    padding: 20px 15px;
+    gap: 20px;
+    background-color: #e6dfc6;
+  }
+
+  .welcome-message h1 {
+    font-size: 2.4rem;
+    color: #554c3c;
+  }
+
+  .time {
+    font-size: 3.5rem;
+    color: #554c3c;
+  }
+
+  .weekday {
+    font-size: 1.8rem;
+    color: #554c3c;
+  }
+
+  .date {
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    color: #fff;
+    border-radius: 10px;
+    background-color: #a29c7e;
+  }
+
+  .holiday-span {
+    display: none;
+  }
+}

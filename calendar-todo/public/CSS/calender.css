@@ -1,0 +1,87 @@
+.calendar-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  width: 100%;
+  max-width: 100%;
+}
+
+main button {
+  min-width: 0;
+  height: 5rem;
+  text-align: right;
+  font-size: large;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid #fff;
+  box-shadow: 0 0 0 1px #aaa inset;
+}
+
+.todoSpan {
+  min-width: 0;
+  font-size: medium;
+}
+
+.todos-icon {
+  min-width: 0;
+  text-align: left;
+  margin-left: 0.2rem;
+}
+
+.calendar-weekday {
+  min-width: 0;
+  font-weight: 900;
+  font-size: x-large;
+  text-align: center;
+}
+
+.calendar-month {
+  min-width: 0;
+  font-size: xx-large;
+  font-weight: bold;
+  text-align: center;
+}
+
+.calendar-month h1 {
+  margin: 0;
+}
+
+.calendar-top {
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.calendar-top button {
+  min-width: 0;
+  height: 3rem;
+  width: 4rem;
+  text-align: center;
+  background-color: #a29c7e;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.icon-arrow {
+  min-width: 0;
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+.beforinger {
+  background-color: #a29c7e;
+  color: #666;
+}
+
+.holiday-button {
+  color: darkred;
+}
+
+.holiday-span {
+  display: none;
+}

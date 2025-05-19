@@ -1,0 +1,57 @@
+@media (min-width: 80rem) {
+  aside {
+    background-color: #a29c7e;
+    color: #554c3c;
+    flex: 1;
+  }
+
+  main {
+    background-color: #e6dfc6;
+    color: #554c3c;
+    flex: 3;
+  }
+
+  header {
+    padding: 20px 10px;
+    background-color: #a29c7e;
+  }
+
+  .welcome-segment {
+    gap: 30px;
+    padding: 25px;
+    max-width: 1000px;
+    box-shadow: 0 8px 24px rgba(0, 43, 91, 0.15);
+    background-color: #e6dfc6;
+  }
+
+  .welcome-message h1 {
+    font-size: 2.4rem;
+    letter-spacing: -1px;
+    color: #554c3c;
+  }
+
+  .time {
+    font-size: 3.5rem;
+    letter-spacing: -2px;
+    color: #554c3c;
+  }
+
+  .weekday {
+    font-size: 1.8rem;
+    color: #554c3c;
+  }
+
+  .date {
+    font-size: 1.2rem;
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: #fff;
+  }
+
+  .holiday-span {
+    display: block;
+    font-size: x-small;
+    text-align: left;
+    color: darkred;
+  }
+}

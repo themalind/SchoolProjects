@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home | Calendar</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="CSS/header.css" />
+    <link rel="stylesheet" href="CSS/calender.css" />
+    <link rel="stylesheet" href="CSS/sidebar.css" />
+    <link rel="stylesheet" href="CSS/tablet.css" />
+    <link rel="stylesheet" href="CSS/desktop.css" />
+    <script type="module" src="js/main.js" defer></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="welcome-segment" data-cy="welcome-segment">
+        <div class="welcome-message">
+          <h1>Välkommen till din Kalender</h1>
+        </div>
+        <div class="time-date-container">
+          <div class="time-container">
+            <span class="time" id="current-time"></span>
+          </div>
+          <div class="date-container">
+            <span class="weekday" id="current-weekday"></span>
+            <span class="date" id="current-date"></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <aside class="container-item">
+        <section class="todo-panel">
+          <h2 class="border-bottom">ATT GÖRA</h2>
+          <div class="todo-container border-bottom">
+            <div class="day-nav">
+              <button id="prev-day" class="month-small"></button>
+              <div class="toggle-group">
+                <button id="today-btn" class="toggle-option active">Idag</button>
+                <button id="all-btn" class="toggle-option">Alla</button>
+              </div>
+              <button id="next-day" class="month-small"></button>
+            </div>
+            <div class="month-nav">
+              <button id="prev-month" class="month-small"></button>
+              <button id="month-button" class="month-main" aria-disabled="true"></button>
+              <button id="next-month" class="month-small"></button>
+            </div>
+          </div>
+          <h3 id="active-date-heading" class="date-heading"></h3>
+          <p id="active-date-holiday" class="holiday-label"></p>
+          <ul class="todo-list-container" data-cy="todo-list"></ul>
+          <div class="add-todo-container">
+            <div class="add-todo-header">
+              <h3 id="add-todo-heading">Lägg till en ToDo</h3>
+              <button class="add-button" id="add-todo-button" data-cy="todo-reveal-form">
+                <i data-lucide="plus"></i>
+              </button>
+            </div>
+            <div class="form-container"></div>
+          </div>
+        </section>
+      </aside>
+
+      <main class="container-item">
+        <div class="calendar-top">
+          <button id="prev" data-cy="prev-month">
+            <span class="material-symbols-outlined icon-arrow">arrow_back</span>
+          </button>
+          <section class="calendar-month"></section>
+          <button id="next" data-cy="next-month">
+            <span class="material-symbols-outlined icon-arrow">arrow_forward</span>
+          </button>
+        </div>
+        <section class="calendar-container" data-cy="calendar-body"></section>
+      </main>
+    </div>
+  </body>
+</html>
